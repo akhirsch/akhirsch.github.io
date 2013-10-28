@@ -43,7 +43,7 @@
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="dt">Sig'Parser</span><span class="ot"> ::</span> <span class="dt">Parser</span> (<span class="dt">Term</span> <span class="dt">Sig'</span>)  
 <span class="dt">Sig'Parser</span> <span class="fu">=</span> <span class="dt">MultParser</span> <span class="fu">&lt;|&gt;</span> <span class="kw">do</span>  
   sig <span class="ot">&lt;-</span> <span class="dt">SigParser</span>  
-  <span class="fu">return</span> <span class="fu">$</span> deepInject2 sig  </code></pre>
+  return <span class="fu">$</span> deepInject2 sig  </code></pre>
 <p>Where <code>SigParser</code> was the parser for <code>Term Sig</code> and <code>MultParser</code> was the parser for the extension.</p>
 <p>Perhaps, you can already see the problem here. We did not at first, as it compiled and ran fine on the input we were giving it. We gave it the input “* + 3 2 4”, because the parser was pre-order. In this case it worked perfectly, but then we gave it slightly different input: “+ * 3 2 4”. The result?</p>
 <p>No parse.</p>

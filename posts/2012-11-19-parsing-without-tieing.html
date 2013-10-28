@@ -42,9 +42,9 @@
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> f <span class="fu">:+:</span> g <span class="fu">=</span> inl f
              <span class="fu">|</span> inr g
 
-<span class="kw">instance</span> (<span class="kw">Functor</span> f, <span class="kw">Functor</span> g) <span class="ot">=&gt;</span> <span class="kw">Functor</span> f <span class="fu">:+:</span> g <span class="kw">where</span>
-  <span class="fu">fmap</span> (inl f) e <span class="fu">=</span> inl (<span class="fu">fmap</span> f e)
-  <span class="fu">fmap</span> (inr g) e <span class="fu">=</span> inr (<span class="fu">fmap</span> g e)</code></pre>
+<span class="kw">instance</span> (<span class="dt">Functor</span> f, <span class="dt">Functor</span> g) <span class="ot">=&gt;</span> <span class="dt">Functor</span> f <span class="fu">:+:</span> g <span class="kw">where</span>
+  fmap (inl f) e <span class="fu">=</span> inl (fmap f e)
+  fmap (inr g) e <span class="fu">=</span> inr (fmap g e)</code></pre>
 <p>The difficulty comes when parsing. In particular, we need to parse into some closed datatype. In particular, you can think of the “untied” ADTs as not having a shape, and tying the knot as giving them shape. Parsing gives a shape to some text as data, and thus it needs some shaped data structure to parse into. However, if we give a shape to the data structure, then we cannot then add more pieces to it.</p>
 <p>Then, the question becomes, can we parse into an unshaped data structure? It’s easy enough to imagine a parser for the <code>Add</code> functor:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">   <span class="dt">ParseAdd</span><span class="ot"> ::</span> <span class="dt">Parser</span> e <span class="ot">-&gt;</span> <span class="dt">Parser</span> (<span class="dt">Add</span> e)
@@ -55,7 +55,7 @@
      spaces
      s2 <span class="ot">&lt;-</span> p
      spaces
-     <span class="fu">return</span> <span class="fu">$</span> <span class="dt">Add</span> s1 s2</code></pre>
+     return <span class="fu">$</span> <span class="dt">Add</span> s1 s2</code></pre>
 <p>Then, the question becomes, can we define a parser for <code>Term Add</code> using this parser for <code>Add e</code>? One can imagine it might look something like</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"> <span class="dt">AddParser</span><span class="ot"> ::</span> <span class="dt">Parser</span> (<span class="dt">Term</span> <span class="dt">Add</span>)
  <span class="dt">AddParser</span> <span class="fu">=</span> fix <span class="dt">ParseAdd</span></code></pre>
