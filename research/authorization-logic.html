@@ -4,45 +4,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Andrew Hirsch: Language and Logic - Authorization Logic</title>
+        <title>Authorization Logic</title>
         <link rel="stylesheet" type="text/css" href="../css/default.css" />
         <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
     </head>
     <body>
         <div id="header">
-            <div id="logo">
-                <a href="../">Andrew Hirsch: Language and Logic</a>
-            </div>
+            <div id="name">
+	      <img src="../images/face.jpg" style="float: left; margin: 10px; height:75px;" />
+              <a href="../">Andrew Hirsch</a>
+	      Ph.D. Student<br />
+	      Department of Computer Science<br />
+	      Cornell University
+	    </div><br />
             <div id="navigation">
-                <a href="../">Home</a>
-                <a href="../about.html">About</a>
-                <a href="../contact.html">Contact</a>
-                <a href="../archive.html">Archive</a>
-                <a href="../research.html">Research</a>
-                <a href="../cv.html">CV</a>
+              <a href="../">Home</a>
+              <a href="../about.html">About</a>
+              <a href="../contact.html">Contact</a>
+              <a href="../publications.html">Publications</a>
+              <a href="../research.html">Research</a>
+              <a href="../cv.html">CV</a>
             </div>
         </div>
 
         <div id="content">
             <h1>Authorization Logic</h1>
 
-            <div class="info">
-    
-        Posted by Andrew K. Hirsch
-    
-</div>
-
-<p>Authorization logics are logics for describing authorization in (distributed) computing systems. In particular, authorization logics have <em>principals</em>, which represent the different parts of the computing system, and a modality for each, often written with <code>A says</code>, where <code>A</code> is a principal. Thus, we can say <code>A says φ</code> when <code>φ</code> is a sentence that <code>A</code> believes to be true. What makes authorization logics different from standard modal logics in the inclusion of a <code>speaks for</code> connective among principals, where <code>A speaks for B</code> if, whenever <code>A</code> believes a sentence, so does <code>B</code>. This allows for delegation among principals in a system.</p>
+            <p>Authorization logics are logics for describing authorization in (distributed) computing systems. In particular, authorization logics have <em>principals</em>, which represent the different parts of the computing system, and a modality for each, often written with <code>A says</code>, where <code>A</code> is a principal. Thus, we can say <code>A says φ</code> when <code>φ</code> is a sentence that <code>A</code> believes to be true. What makes authorization logics different from standard modal logics in the inclusion of a <code>speaks for</code> connective among principals, where <code>A speaks for B</code> if, whenever <code>A</code> believes a sentence, so does <code>B</code>. This allows for delegation among principals in a system.</p>
 <p>My work in authorization logics, all with Michael Clarkson, is listed below:</p>
 <ul>
 <li><a href="http://arxiv.org/abs/1211.3700">Nexus Authorization Logic (NAL): Logical Results</a></li>
 </ul>
 <p>Here, we work to give formal Kripke semantics to the Nexus Authorization Logic (NAL). NAL is used in the Nexus Operating System, developed at Cornell University. The Kripke semantics is also formalized in Coq. This is a technical report.</p>
 <ul>
-<li><a href="../publications/belief_semantics_authorization_logics.pdf">Belief Semantics of Authorization Logics</a></li>
+<li><a href="../pubs/belief_semantics_authorization_logics.html">Belief Semantics of Authorization Logics</a></li>
 </ul>
 <p>Here, we work to give a more intuitive semantics to authorization logics. We equip each principal with a set of beliefs that it has. We show that this is equivalent to Kripke semantics, in the sense that it is always possible to construct a belief structure for any Kripke structure, such that they validate the same formulas.</p>
-<p>This paper has been accepted to appear in CCS 2013. Code can be found <a href="../publications/focal.tar.gz">here</a> (tar file).</p>
+<p>This paper appeared in CCS 2013.</p>
 
         </div>
         <div id="footer">
