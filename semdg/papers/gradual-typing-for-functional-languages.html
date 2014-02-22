@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta http-equiv="Cache-Control" content="public, max-age=3600"> <!-- cache for only 1 hour -->
+	<link rel="stylesheet" type="text/css" media="screen" href="../../semdg/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../semdg/css/2112.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../semdg/css/schedule.css" />
+	<script type="text/javascript" src="../../semdg/js/ajax.js"></script>
+	<script type="text/javascript" src="../../semdg/js/email.js"></script>
+    <title>Semantics DG - gradual-typing-for-functional-languages</title>
+  </head>
+  <body class="onecolumn">
+	<div id="skipnav">
+	  <a href="#content">Skip to main content</a>
+	</div>
+
+	<hr />
+
+	<!-- CU logo & unit signature -->
+	<div id="cu-identity">
+		<div id="cu-logo">
+		<a id="insignia-link" href="http://www.cs.cornell.edu/"><img src="../../semdg/images/CS_2line_a_red.gif" alt="Cornell University" width="283" height="75" border="0" /></a>
+		</div>
+
+		<div id="search-form">
+		<form action="http://web.search.cornell.edu/search" method="get" name="gs">
+			<div id="search-input">
+			<label for="search-form-query">SEARCH:</label>
+			<input type="text" name="q" value size="20" maxlength="256" id="search-form-query" />
+			<input type="submit" name="btnG" value="go" id="search-form-submit" />
+			<input type="hidden" name="output" value="xml_no_dtd" />
+			<input type="hidden" name="sort" value="date:D:L:d1" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="hidden" name="client" value="default_frontend" />
+			<input type="hidden" name="oe" value="UTF-8" />
+			<input type="hidden" name="site" value="default_collection" />
+			<input type="hidden" name="proxystylesheet" value="default_frontend" />
+			</div>
+			
+			<div id="search-filters">
+			<input type="radio" name="sitesearch" value="cs.cornell.edu" checked="checked" id="search-filters1" />
+			<label for="search-filters1">CS</label>
+			<input type="radio" name="sitesearch" value id="search-filters2" />
+			<label for="search-filters2">Cornell</label>
+			<label><a href="http://web.search.cornell.edu/">more options</a></label>
+			</div>
+		</form>
+		</div>
+	</div>
+    <div id="header">	
+  <div id="identity">
+    <h1>Theory of Programming Languages Seminar</br></br>
+    <small>Spring 2014</br>
+    Mondays 3-4, Gates 405 (Freethought 1) </br>
+    <a href="http://www.cs.cornell.edu/~akhirsch">Andrew Hirsch</a>, <a href="http://www.cs.cornell.edu/~fabianm">Fabian Mühlböck</a></small></h1>
+  </div>
+  <div id="navigation">
+    <ul id="nav">
+      <li class="top"><a href="../../semdg/index.html" class="top_link">Home</a></li>
+      <li class="top"><a href="../../semdg/archive.html" class="top_link">Other Semesters</a></li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+
+<div id="wrap">
+
+<div id="content">
+	
+<hr />
+<h1>Gradual Typing for Functional Languages</h1>
+<h2>By Jeremy G. Siek and Walid Taha</h2>
+<h2>Discussion led by Fabian Mühlböck on February 24, 2014</h2>
+<div class="abstract">
+Abstract: <p><p>Static and dynamic type systems have well-known strengths and weaknesses, and each is better suited for different programming tasks. There have been many efforts to integrate static and dynamic typing and thereby combine the benefits of both typing disciplines in the same language. The flexibility of static typing can be improved by adding a type Dynamic and a typecase form. The safetyand performance of dynamic typing can be improved by adding optional type annotations or by performing type inference (as in soft typing). However, there has been little formal work on type systems that allow a programmer-controlled migration between dynamic and static typing. Thatte proposed Quasi-Static Typing, but it does not statically catch all type errors in completely annotated programs. Anderson and Drossopoulou defined a nominal type system for an object-oriented language with optional type annotations. However, developing a sound, gradual type system for functional languages with structural types is an open problem. In this paper we present a solution based on the intuition that the structure of a type may be partially known/unknown at compile-time and the job of the type system is to catch incompatibilities between the known parts of types. We define the static and dynamic semantics of a λ-calculus with optional type annotations and we prove that its type system is sound with respect to the simply-typed λ-calculus for fully-annotated terms. We prove that this calculus is type safe and that the cost of dynamism is “pay-as-you-go”.</p></p>
+</div>
+
+<a href="http://www.cs.colorado.edu/~siek/pubs/pubs/2006/siek06:_gradual.pdf">pdf</a>
+<br /> 
+</div>
+</div>
+
+	<div id="footer">
+		<div id="footer-content">
+			©2014 <a href="http://www.cornell.edu/">Cornell University</a>
+		</div>
+	</div>
+  </body>
+</html>
+	
