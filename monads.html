@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>A 5-Minute Monad Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="./css/default.css" />
+        <link rel="stylesheet" type="text/css" href="./css/syntax.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="name">
+	      <img src="./images/face.jpg" style="float: left; margin: 10px; height:75px;" />
+              <a href="./">Andrew Hirsch</a>
+	      Ph.D. Student<br />
+	      Department of Computer Science<br />
+	      Cornell University
+	    </div><br />
+            <div id="navigation">
+              <a href="./">Home</a>
+              <a href="./about.html">About</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./publications.html">Publications</a>
+              <a href="./research.html">Research</a>
+              <a href="./cv.html">CV</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>A 5-Minute Monad Tutorial</h1>
+
+            <p>In 2012, My friend and colleague Kristopher Micinski challenged folks to write a 5 minute monad tutorial in his blog (<a href="http://www.cs.umd.edu/~micinski/posts/2012-09-22-five-minute-monad-madness.html">Five Minute Monad Madness</a>). As far as I’m aware, nobody has taken him up on that challenge. This is my attempt.</p>
+<p>Let’s start from the perspective of an effectful program. In particular, let’s think about a program <code>p</code> that takes an integer and outputs another integer, but which might return null. That is, the type of <code>p</code> is</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></code></pre>
+<p>where <code>p</code> might return null.</p>
+<p>What we want is some way to explicitly represent the fact that the program might return null. We can do that by modifying only the output type: instead of returning an integer, our <code>p</code> might return an integer or some token that represents null.</p>
+<p>In some sense, we’ve now captured the effect. It’s not the case that <code>p</code> takes an integer and returns an integer, but might fail and return null. Instead, <code>p</code> takes an integer and returns a thing that might either be an integer or a token. This is exactly the type <code>Maybe Int</code>, where <code>Maybe</code> is defined as</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">Maybe</span> a <span class="fu">=</span> <span class="dt">Just</span> a
+             <span class="fu">|</span> <span class="dt">Nothing</span></code></pre>
+<p>That is, the type of <code>p</code> is now</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
+<p>Now, what if we had two programs, <code>p</code> and <code>q</code>. As before the type of <code>p</code> is</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
+<p><code>q</code> has the same type: <code>haskell q : Int -&gt; Int</code>. Either <code>p</code> or <code>q</code> might return null, however.</p>
+<p>Certainly, we can compose <code>p</code> and <code>q</code>:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p;q <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
+<p>This composed program runs <code>p</code> on its input, gets its output (if any) and then runs <code>q</code> on that output. If either <code>p</code> or <code>q</code> return null, then so does the whole thing.</p>
+<p>Now, suppose that we had <code>p</code> and <code>q</code> with their effects captured. We want to compose them. How do we do that?</p>
+<p>Note that after capturing the effects of <code>p</code> and <code>q</code>, we get that they have the types</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span></code></pre>
+<p>and</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">q <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span></code></pre>
+<p>So we can’t feed the output of <code>p</code> into <code>q</code>, since <code>q</code> doesn’t know what to do! We can’t compose them directly, since there’s a type mismatch now.</p>
+<p>Luckily, we can still do something. We can write the following function, using infix notation:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p ;; q x <span class="fu">=</span> match p x with
+             <span class="dt">Just</span> y <span class="ot">-&gt;</span> q y
+             <span class="dt">Nothing</span> <span class="ot">-&gt;</span> <span class="dt">Nothing</span></code></pre>
+<p>Intuitively, this is the same as if we composed <code>p</code> and <code>q</code> before we captured their effects. It runs <code>p</code>, and then if <code>p</code> outputs something that’s not null, it runs <code>q</code>.</p>
+<p>At this point, we’ve almost created a “world of effectful functions.” We’re able to deal with effectful functions by capturing their effects. After we do the capture, we can still compose.</p>
+<p>However, we want to be able to deal with values in this world. If we have an <code>Int</code>, <code>v</code>, we can write <code>Just v</code> to get a <code>Maybe Int</code>.</p>
+<p>Now, let’s abstract out. Instead of <code>p : Int -&gt; Int</code> we want to consider<code>p : A -&gt; B</code>. Again <code>p</code> is effectful. However, this time we don’t know what effect <code>p</code> might have.</p>
+<p>We want to be able to transform <code>p</code>’s output type. Assume that <code>M</code> is a transformation of types. We also assume that we can capture the effects of <code>p</code> to get <code>p : A -&gt; M(B)</code>.</p>
+<p>Consider <code>p : A -&gt; B</code> and <code>q : B -&gt; C</code>, both of which are effectful. After capturing the effects, we have <code>p : A -&gt; M(B)</code>, and <code>q : B -&gt; M(C)</code>. We need a way to compute the composition of <code>p</code> and <code>q</code> after capturing This means we need a function</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">;; <span class="fu">:</span> (<span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">B</span>)) <span class="ot">-&gt;</span> (<span class="dt">B</span> <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">C</span>)) <span class="ot">-&gt;</span> <span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">C</span>)</code></pre>
+<p>To deal with values, we also need a <code>return</code> function</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">return <span class="fu">:</span> <span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">A</span>)<span class="fu">.</span></code></pre>
+<p>At this point, you might be asking “So what about this <code>&gt;&gt;=</code> thing I keep hearing about?” Recall the type of <code>&gt;&gt;=</code>:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;&gt;=</span> <span class="fu">:</span> <span class="dt">M</span>(<span class="dt">A</span>) <span class="ot">-&gt;</span> (<span class="dt">A</span> <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">B</span>)) <span class="ot">-&gt;</span> <span class="dt">M</span>(<span class="dt">B</span>)</code></pre>
+<p>We can write <code>&gt;&gt;=</code> as</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">m <span class="fu">&gt;&gt;=</span> f <span class="fu">=</span> (id;;f) m<span class="fu">.</span></code></pre>
+<p>Conversely, we can write <code>;;</code> given <code>&gt;&gt;=</code>:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p;;q x <span class="fu">=</span> q <span class="fu">&gt;&gt;=</span> (p x)<span class="fu">.</span></code></pre>
+<p>So, Haskell’s bind is equivalent to our composition operator.</p>
+<p>Now we have a notion of composition for effectful programs. However, we want to make sure that this notion is “right.”</p>
+<p>In particular, we want, for any appropriate <code>p</code>,<code>q</code>, and <code>r</code>,</p>
+<pre><code>(p;;q);;r = p;;(q;;r)</code></pre>
+<p>If we unfold the definition of <code>;;</code> we had above, we get</p>
+<pre><code>(\x -&gt; r x &gt;&gt;= (\y -&gt; q y &gt;&gt;= p)) = (\x -&gt; (r x &gt;&gt;= q) &gt;&gt;= p),</code></pre>
+<p>which is one of the monad laws.</p>
+<p>We also want <code>return</code> to act as an identity on <code>;;</code>. That is, we want that</p>
+<pre><code>return;;f = f = f;;return.</code></pre>
+<p>Again, unfolding <code>;;</code> as above, we get</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">(\x <span class="ot">-&gt;</span> f x <span class="fu">&gt;&gt;=</span> return) <span class="fu">=</span> (\x <span class="ot">-&gt;</span> f x)</code></pre>
+<p>and</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">(\x <span class="ot">-&gt;</span> return x <span class="fu">&gt;&gt;=</span> f) <span class="fu">=</span> (\x <span class="ot">-&gt;</span> f x)<span class="fu">.</span></code></pre>
+<p>These three laws we’ve derived above are exactly the monad laws given in <a href="https://wiki.haskell.org/Monad">The Haskell Wiki</a>.</p>
+<p>This, in my opinion, is the best way to think about monads. They are about capturing effects, making function pure, and doing so in a composable way. The monad laws just say that <code>;;</code> acts like composition (is associative) and that <code>return</code> is an identity for <code>;;</code>.</p>
+        </div>
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
