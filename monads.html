@@ -42,7 +42,9 @@
 <pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
 <p>Now, what if we had two programs, <code>p</code> and <code>q</code>. As before the type of <code>p</code> is</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">p <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
-<p><code>q</code> has the same type: <code>haskell q : Int -&gt; Int</code>. Either <code>p</code> or <code>q</code> might return null, however.</p>
+<p><code>q</code> has the same type:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">q <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
+<p>Either <code>p</code> or <code>q</code> might return null, however.</p>
 <p>Certainly, we can compose <code>p</code> and <code>q</code>:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">p;q <span class="fu">:</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span><span class="fu">.</span></code></pre>
 <p>This composed program runs <code>p</code> on its input, gets its output (if any) and then runs <code>q</code> on that output. If either <code>p</code> or <code>q</code> return null, then so does the whole thing.</p>
@@ -70,7 +72,7 @@
 <p>We can write <code>&gt;&gt;=</code> as</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">m <span class="fu">&gt;&gt;=</span> f <span class="fu">=</span> (id;;f) m<span class="fu">.</span></code></pre>
 <p>Conversely, we can write <code>;;</code> given <code>&gt;&gt;=</code>:</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell">p;;q x <span class="fu">=</span> q <span class="fu">&gt;&gt;=</span> (p x)<span class="fu">.</span></code></pre>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">p;;q x <span class="fu">=</span> (p x) <span class="fu">&gt;&gt;=</span> q<span class="fu">.</span></code></pre>
 <p>So, Haskell’s bind is equivalent to our composition operator.</p>
 <p>Now we have a notion of composition for effectful programs. However, we want to make sure that this notion is “right.”</p>
 <p>In particular, we want, for any appropriate <code>p</code>,<code>q</code>, and <code>r</code>,</p>
