@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Andrew K. Hirsch - Effects</title>
+    <link rel="self" type="application/atom+xml" href="https://akhirsch.science/area/effects/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://akhirsch.science"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-11T00:00:00+00:00</updated>
+    <id>https://akhirsch.science/area/effects/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Semantics for Noninterference with Interaction Trees</title>
+        <published>2023-07-11T00:00:00+00:00</published>
+        <updated>2023-07-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Andrew K. Hirsch
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/"/>
+        <id>https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/</id>
+        
+        <content type="html" xml:base="https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/">&lt;h1 id=&quot;links&quot;&gt;Links&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;entities&#x2F;document&#x2F;10.4230&#x2F;LIPIcs.ECOOP.2023.29&quot;&gt;Official Version&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;semantics-for-noninterference-with-itrees&#x2F;Semantics_for_Noninterference_with_ITrees.pdf&quot;&gt;Preprint&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Giving Semantics to Program-Counter Labels via Secure Effects</title>
+        <published>2021-01-04T00:00:00+00:00</published>
+        <updated>2021-01-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Andrew K. Hirsch
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://akhirsch.science/papers/pc-label-semantics/"/>
+        <id>https://akhirsch.science/papers/pc-label-semantics/</id>
+        
+        <content type="html" xml:base="https://akhirsch.science/papers/pc-label-semantics/">&lt;h1 id=&quot;talk-video&quot;&gt;Talk Video&lt;&#x2F;h1&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;FdTOpn973os?si=kWomGOSJy0cUlxfh&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;h1 id=&quot;links&quot;&gt;Links&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3434316&quot;&gt;Official Version&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;pc-label-semantics&#x2F;Giving_Semantics_to_Program-Counter_Labels_via_Secure_Effects.pdf&quot;&gt;Preprint&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;pc-label-semantics&#x2F;Giving_Semantics_to_Program-Counter_Labels_via_Secure_Effects_TR.pdf&quot;&gt;Technical Report&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Strict and Lazy Semantics of Effects</title>
+        <published>2018-07-30T00:00:00+00:00</published>
+        <updated>2018-07-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Andrew K. Hirsch
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://akhirsch.science/papers/strict-and-lazy-effects/"/>
+        <id>https://akhirsch.science/papers/strict-and-lazy-effects/</id>
+        
+        <content type="html" xml:base="https://akhirsch.science/papers/strict-and-lazy-effects/">&lt;h1 id=&quot;talk-video&quot;&gt;Talk Video&lt;&#x2F;h1&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;D6fgsvsDnnc?si=LfQlV57euH2inB1l&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;h1 id=&quot;links&quot;&gt;Links&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3236783&quot;&gt;Official Version&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;strict-and-lazy-effects&#x2F;Strict_and_Lazy_Semantics_of_Effects.pdf&quot;&gt;Preprint&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;strict-and-lazy-effects&#x2F;Strict_and_Lazy_Semantics_of_Effects_TR.pdf&quot;&gt;Technical Report&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

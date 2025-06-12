@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Semantics for Noninterference with Interaction Trees</title>
+  <meta name=author content="">
+  <meta name=description content="&amp;lt;h1 id=&amp;quot;links&amp;quot;&amp;gt;Links&amp;lt;&#x2F;h1&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;entities&#x2F;document&#x2F;10.4230&#x2F;LIPIcs.ECOOP.2023.29&amp;quot;&amp;gt;Official Version&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;semantics-f…" />
+  <meta name="robots" content="max-image-preview:large" />
+  <link rel=canonical href="https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/">
+  <meta property="og:site_name" content="Andrew K. Hirsch">
+  <meta property="og:title" content="Semantics for Noninterference with Interaction Trees">
+  <meta property="og:description" content="&amp;lt;h1 id=&amp;quot;links&amp;quot;&amp;gt;Links&amp;lt;&#x2F;h1&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;entities&#x2F;document&#x2F;10.4230&#x2F;LIPIcs.ECOOP.2023.29&amp;quot;&amp;gt;Official Version&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;semantics-f…">
+  <meta name=twitter:card content="summary">
+  <meta name=twitter:title content="Semantics for Noninterference with Interaction Trees">
+  <meta name=twitter:description content="&amp;lt;h1 id=&amp;quot;links&amp;quot;&amp;gt;Links&amp;lt;&#x2F;h1&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;entities&#x2F;document&#x2F;10.4230&#x2F;LIPIcs.ECOOP.2023.29&amp;quot;&amp;gt;Official Version&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https:&#x2F;&#x2F;akhirsch.science&#x2F;papers&#x2F;semantics-f…">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://akhirsch.science/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://akhirsch.science/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://akhirsch.science/favicon-16x16.png" />
+  <link rel="manifest" href="https://akhirsch.science/site.webmanifest" />
+  <link rel="icon" sizes="16x16" href="https://akhirsch.science/favicon.ico" />
+  <link rel=alternate type=application/rss+xml href="https://akhirsch.science/index.xml" title=Andrew K. Hirsch/>
+  <link rel="stylesheet" href="https://akhirsch.science/main.css"/>
+</head>
+
+<body>
+  <header>
+    <a class="header__verification" href="https://akhirsch.science">Andrew K. Hirsch</a>
+    <p class="header__official">Official</p>
+    <nav>
+      <ul>
+        <li>
+          <a href="https://akhirsch.science">Home</a>
+          
+        </li>
+        <li>
+          <a href="https://akhirsch.science/posts">Blog</a>
+          
+        </li>
+        <li>
+          <a href="https://akhirsch.science/papers">Research</a>
+          
+        </li>
+        <li>
+          <a href="https://akhirsch.science/projects">Projects</a>
+          
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Semantics for Noninterference with Interaction Trees</h1>
+
+<div class="authors">
+  
+  By Lucas Silver, Paul He, Ethan Cecchetti, <b>Andrew K. Hirsch</b>, and Steve Zdancewic
+  
+</div>
+
+<h2>Abstract</h2>
+<div class="abstract">
+  Noninterference is the strong information-security property that a program does not leak secrets through publicly-visible behavior. In the presence of effects such as nontermination, state, and exceptions, reasoning about noninterference quickly becomes subtle. We advocate using interaction trees (ITrees) to provide compositional mechanized proofs of noninterference for multi-language, effectful, nonterminating programs, while retaining executability of the semantics. We develop important foundations for security analysis with ITrees: two indistinguishability relations, leading to two standard notions of noninterference with adversaries of different strength, along with metatheory libraries for reasoning about each. We demonstrate the utility of our results using a simple imperative language with embedded assembly, along with a compiler into that assembly language.
+</div>
+
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ECOOP.2023.29">Official Version</a></li>
+<li><a href="https://akhirsch.science/papers/semantics-for-noninterference-with-itrees/Semantics_for_Noninterference_with_ITrees.pdf">Preprint</a></li>
+</ul>
+
+  </main>
+  <footer>
+    <!-- <p> -->
+    <!--   Powered by <a target="_blank" rel="noopener" href="https://www.getzola.org">zola 0.20.0</a> -->
+    <!--   | Theme <a target=_blank rel=noopener href=https://github.com/inhzus/zola-futu>futu@main</a> -->
+    <!-- </p> -->
+  </footer>
+  
+  <script type="text/javascript" defer
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+      });
+      MathJax.Hub.Queue(function() {
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+      MathJax.Hub.Config({
+      // Autonumbering by mathjax
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+</body>
+</html>
