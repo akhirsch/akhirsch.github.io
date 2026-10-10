@@ -76,5 +76,17 @@
 	"date_joined" : "2025-01-01",
 	"date_graduated": "2025-12-15",
 	"degree_conferred": "MS"
-    }	
+    },
+    {
+	"name": "Halle Bryant",
+	"date_joined": "2026-01-20",
+	"date_graduated": "2026-05-17",
+	"degree_conferred": "MS"
+    },
+    {
+	"name": "Julia Montouri",
+	"date_joined": "2025-01-01",
+	"date_graduated": "2026-05-17",
+	"degree_conferred": "BS"
+    }
 ]
